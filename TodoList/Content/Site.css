@@ -1,0 +1,90 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* 以下 Todo List 用 */
+.todolistForm {
+    width: 500px;
+    margin: 10px auto 0;
+}
+
+.todolistSort {
+    margin: 10px 0;
+}
+
+ul.todolistContent {
+    padding: 0;
+}
+
+    ul.todolistContent li {
+        list-style: none;
+        margin-bottom: 5px;
+    }
+
+        ul.todolistContent li a.btn-delete {
+            font-size: 15pt;
+            font-weight: bolder;
+            position: absolute;
+            margin-left: 10px;
+            text-decoration: none;
+            display: none;
+        }
+
+        ul.todolistContent li:hover a.btn-delete {
+            display: inline;
+        }
+
+        ul.todolistContent li input[type="text"].newItem {
+            width: 100%;
+        }
+
+        ul.todolistContent li input[type="text"] {
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 1px solid #A6A6A6;
+        }
+
+            ul.todolistContent li input[type="text"]:focus {
+                outline: 0;
+            }
+
+        ul.todolistContent li label.ipt.ipt-hidden {
+            visibility: hidden;
+        }
+
+        ul.todolistContent li:hover label.ipt.ipt-hidden {
+            visibility: visible;
+        }
+
+label.todolistLabel > input[type="checkbox"] {
+    display: none;
+}
+
+.congratz {
+    color: red;
+    font-size: 8px;
+    font-weight: bolder;
+    margin-left: 23px;
+}

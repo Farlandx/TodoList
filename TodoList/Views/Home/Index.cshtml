@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Todo List";
+}
+
+<form class="todolistForm" ng-controller="todolistCtrl">
+    <div>
+        <input class="search form-control input-sm" type="text" ng-model="search.text" placeholder="想找尋什麼辦事項呢？" />
+    </div>
+    <div class="todolistSort bs-callout bs-callout-info">
+        <h4>排序方式</h4>
+        <a class="btn btn-primary btn-xs" href="" ng-click="sortCondition = 'complete'; reverse=!reverse">完成度</a>
+        <a class="btn btn-info btn-xs" href="" ng-click="sortCondition = 'text'; reverse=!reverse">名稱</a>
+        <a class="btn btn-warning btn-xs" href="" ng-click="sortCondition = 'important'; reverse=!reverse">重要性</a>
+        <a class="btn btn-danger btn-xs" href="" ng-click="sortCondition = ''; reverse=true">取消排序</a>
+    </div>
+    <ul class="todolistContent">
+        <li>
+            <input class="newItem" type="text" ng-model="todoText" placeholder="有什麼事情要加入待辦事項中呢？" ng-enter="createTodo(todoText)" />
+        </li>
+        <li ng-repeat="todoItem in todoItems | filter:search | orderBy:sortCondition:reverse">
+            <label class="todolistLabel btn btn-xs" ng-class="{'btn-success':todoItem.complete, 'btn-default':!todoItem.complete}" for="chkComplete{{todoItem.id}}">
+                <input id="chkComplete{{todoItem.id}}" type="checkbox" ng-model="todoItem.complete" ng-change="updateTodo(todoItem)" />
+                {{todoItem.complete?'已完成':'未完成'}}
+            </label>
+            <input class="todolistText" type="text" ng-model="todoItem.text" ng-enter="updateTodo(todoItem)" />
+            <label class="todolistLabel ipt btn btn-danger btn-xs" ng-class="{'':todoItem.important, 'ipt-hidden':!todoItem.important}" for="chkImportant{{todoItem.id}}">
+                重要
+                <input id="chkImportant{{todoItem.id}}" type="checkbox" ng-model="todoItem.important" ng-change="updateTodo(todoItem)" />
+            </label>
+            <a class="btn-delete" href="" ng-click="deleteTodo(todoItem)">&times;</a>
+        </li>
+    </ul>
+    <div ng-show="todoItems.length > 0">
+        已完成:{{(todoItems | filter:{text:search.text, complete:true}).length}}
+        <span class="congratz" ng-show="todoItems.length == (todoItems | filter:{text:search.text, complete:true}).length">喔耶! 所有事情都完成囉!</span>
+    </div>
+</form>

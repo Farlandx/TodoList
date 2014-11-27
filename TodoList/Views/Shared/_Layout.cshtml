@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html ng-app="todolistApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Todo List", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>Farland's Todo List Demo</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/angularjs")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+@*<script type="text/javascript" src="@Url.Content("~/Scripts/angular.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/todolistController.js")"></script>*@
+</html>
