@@ -88,3 +88,8 @@ label.todolistLabel > input[type="checkbox"] {
     font-weight: bolder;
     margin-left: 23px;
 }
+
+.todolistText.completed {
+    color: #777;
+    text-decoration: line-through;
+}

@@ -22,7 +22,7 @@
                 <input id="chkComplete{{todoItem.id}}" type="checkbox" ng-model="todoItem.complete" ng-change="updateTodo(todoItem)" />
                 {{todoItem.complete?'已完成':'未完成'}}
             </label>
-            <input class="todolistText" type="text" ng-model="todoItem.text" ng-enter="updateTodo(todoItem)" />
+            <input class="todolistText" ng-class="{'completed':todoItem.complete, '':!todoItem.complete}" type="text" ng-model="todoItem.text" ng-enter="updateTodo(todoItem)" />
             <label class="todolistLabel ipt btn btn-danger btn-xs" ng-class="{'':todoItem.important, 'ipt-hidden':!todoItem.important}" for="chkImportant{{todoItem.id}}">
                 重要
                 <input id="chkImportant{{todoItem.id}}" type="checkbox" ng-model="todoItem.important" ng-change="updateTodo(todoItem)" />
